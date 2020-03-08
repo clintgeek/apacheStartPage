@@ -1,0 +1,11 @@
+version: '2'
+services:
+    startpage:
+        container_name: StartPage
+        image: httpd:2.4
+        restart: unless-stopped
+        ports:
+          - 8828:80
+        volumes:
+          - /mnt/data500/docker/apacheStartPage/www:/usr/local/apache2/htdocs/
+
