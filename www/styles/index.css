@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin: 0px;
+  background-color: #626567;
 }
 
 .fixed-top {
@@ -27,7 +28,7 @@ html, body {
 
 .calendar {
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 
 .weather {
