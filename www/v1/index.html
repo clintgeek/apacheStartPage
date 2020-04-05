@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/startPage.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159664673-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-159664673-3');
+    </script>
+  </head>
+<body>
+  <div id="main">
+  <!--Date section-->
+  <div class="text-center disable-select calendar" id="weekday"></div>
+  <div class="text-center disable-select calendar" id="date"></div>
+  <div class="text-center disable-select calendar" id="clock"></div>
+  <!--Weather section-->
+  <div class="text-center weather"></div>
+  <!-- Search bar -->
+  <div class="row justify-content-center" id="search-bar">
+    <div class="input-group col-md-8">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" onclick="newSearch()"><i class="fa fa-search"></i></button>
+      </span>
+      <input type="text" class="form-control field-box" id="field">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" id="dropdown-btn">
+        Google
+        </button>
+        <div class="dropdown-menu" id="engine-list"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Link section -->
+  <div class="row justify-content-center disable-select" id="links">
+    <div class="col-md-8 text-center">
+      <a href="https://home.clintgeek.com/">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-home fa-stack-1x fa-inverse link-dark"></i>
+        </span>
+      </a>
+      <a href="https://www.myfitnesspal.com/food/diary">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-cutlery fa-inverse link-dark"></i>
+        </span>
+      </a>
+      <a href="https://connect.garmin.com/modern/">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-sort fa-inverse link-dark"></i>
+        </span>
+      </a>
+      <a href="https://www.meteoblue.com/en/weather/week/mansfield_united-states-of-america_4709013">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-cloud fa-inverse link-dark"></i>
+        </span>
+      </a>
+      <a href="https://books.clintgeek.com">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-book fa-inverse link-dark"></i>
+        </span>
+      </a>
+      <a href="https://sonarr.clintgeek.com">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-tv fa-inverse link-dark"></i>
+        </span>
+      </a>
+      <a href="https://radarr.clintgeek.com">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-film fa-inverse link-dark"></i>
+        </span>
+      </a>
+      <a href="https://sab.clintgeek.com">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-download fa-inverse link-dark"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+  <!-- Quote section -->
+  <div class="" id="quote">
+    <div class="text-center" id="quote-text"></div>
+    <div class="text-center" id="quote-author"></div>
+  </div>
+
+  <!-- JQuery, Popper and Bootstrap plugins-->
+  <script src="scripts/jquery-3.3.1.min.js"></script>
+  <script src="scripts/popper.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/startPage.js"></script>
+</body>
+</html>
