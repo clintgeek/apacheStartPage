@@ -17,19 +17,34 @@ html, body {
   width: 900px;
 }
 
+.btn-secondary {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+.timestamp-bucket {
+  color: #fff;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  margin-right: 0;
+  width: 50%;
+  text-align: right;
+  font-size: .75rem;
+}
+
 .calendar-bucket {
+  color: #fff;
   padding-bottom: 1rem;
   padding-left: 1rem;
   margin-left: 0;
+  width: 50%;
 }
 
 .time {
-  color: #fff;
   font-size: 4rem;
 }
 
 .calendar {
-  color: #fff;
   font-size: 1.35rem;
 }
 

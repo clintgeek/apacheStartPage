@@ -14,6 +14,15 @@ var settings = {
 // ----------------
 // CLOCK
 // ----------------
+function formatTime(date) {
+  var hourNow = date.getHours();
+  var h = formatHour(hourNow);
+  var m = date.getMinutes();
+  var ap = formatAmPm(hourNow);
+  m = addLeadingZero(m);
+  return h + ':' + m + ap;
+}
+
 function startClock() {
   if (settings.displayClock) {
     startTime();
@@ -22,7 +31,7 @@ function startClock() {
 }
 
 // add zero in front of numbers < 10
-function checkTime(i) {
+function addLeadingZero(i) {
   if (i < 10) {
     i = "0" + i;
   }
@@ -31,7 +40,7 @@ function checkTime(i) {
 // convert to 12 hour
 function formatHour(hourNow) {
   if (!settings.twelveHourClock) {
-    return checkTime(hourNow);
+    return addLeadingZero(hourNow);
   }
   if (settings.twelveHourClock && hourNow > 12) {
     return hourNow - 12;
@@ -55,15 +64,11 @@ function formatAmPm(hourNow) {
 // Update clock every 10 sec.
 function startTime() {
   var today = new Date();
-  var hourNow = today.getHours();
-  var h = formatHour(hourNow);
   var m = today.getMinutes();
-  var ap = formatAmPm(hourNow);
   if(m==0) {
     writeDate();
   }
-  m = checkTime(m);
-  document.getElementById('clock').innerHTML = h + ':' + m + ap;
+  document.getElementById('clock').innerHTML = formatTime(today);
   var t = setTimeout(startTime, 10000);
 }
 // Return a properly formatted day number, like 1st, 3rd ...
@@ -94,18 +99,21 @@ function writeDate() {
   weekDay < 7 ? WeekdayString = WeekdaysArray[weekDay] : WeekdayString = "Error: weekDay number "+today.getDay();
   var day = today.getDate();
   var year = today.getFullYear();
-  // document.getElementById('weekday').innerHTML = WeekdayString;
   document.getElementById('date').innerHTML = WeekdayString + " | " + monthString + " " + dayToString(day) + ", "+year;
-  var t = setTimeout(startTime, 10000);
 };
 
 // ----------------
 // WEATHER
 // ----------------
+function updateWeatherTimestamp() {
+  $("#weatherTimestamp").append(`<div>Weather: ` + formatTime(new Date()) + ` </div>`);
+}
+
 function displayWeather() {
   if (settings.displayWeather) {
+    updateWeatherTimestamp();
     $(".weather").append(`
-      <a class="weatherwidget-io" href="https://forecast7.com/en/32d56n97d14/mansfield/?unit=us" data-label_1="MANSFIELD" data-label_2="WEATHER" data-font="Ubuntu" data-theme="dark" >MANSFIELD WEATHER</a>
+      <a class="weatherwidget-io" href="https://forecast7.com/en/32d56n97d14/mansfield/?unit=us" data-label_1="MANSFIELD, TX" data-font="Ubuntu" data-theme="dark" data-basecolor="rgba(0, 0, 0, 0.25)"></a>
       <script>
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","weatherwidget-io-js");
       </script>
@@ -126,6 +134,10 @@ if (!settings.displayLinks) {
     {
       "icon": "fas fa-home",
       "url": "https://home.clintgeek.com",
+    },
+    {
+      "icon": "far fa-clipboard",
+      "url": "https://keep.google.com/u/0/#label/ToDo",
     },
     {
       "icon": "fab fa-android",
